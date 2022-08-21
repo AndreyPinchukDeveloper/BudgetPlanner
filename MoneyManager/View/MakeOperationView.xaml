@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="MoneyManager.View.MakeOperationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MoneyManager.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Grid.IsSharedSizeScope="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock 
+            Margin="20,0,0,0"
+            Text="Make new operation" 
+            FontSize="24" 
+            Grid.Row="0"/>
+
+        <Grid Grid.Row="1" Name="TypeAndAmount" Margin="20,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" SharedSizeGroup="FirstColumn"/>
+                <ColumnDefinition Width="auto" SharedSizeGroup="SecondColumn"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Amount of operation:" Grid.Row="0"/>
+
+            <TextBox
+                Width="114"
+                Text="{Binding AmountOfOperation, UpdateSourceTrigger=PropertyChanged}" 
+                Margin="0,5,0,0"
+                Grid.Row="1" HorizontalAlignment="Center"/>
+
+            <TextBlock 
+                Text="TypeOfOperation" 
+                Grid.Row="0" 
+                Margin="15,0,0,0"
+                Grid.Column="1"/>
+
+            <ComboBox 
+                Grid.Column="1"
+                Text="{Binding ListOfOperations, UpdateSourceTrigger=PropertyChanged}" 
+                Margin="15,5,0,0"
+                Grid.Row="1"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Name="CustomerFloorAndRoom" Margin="20,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Text="Category" 
+                Grid.Row="0" 
+                Margin="0,0,0,0"/>
+
+            <ComboBox
+                HorizontalAlignment="Left"
+                Width="230"
+                Text="{Binding ListOfCategories, UpdateSourceTrigger=PropertyChanged}" 
+                Margin="0,5,0,0"
+                Grid.Row="1"/>
+
+        </Grid>
+
+        <Grid Grid.Row="3" Name="StartAndEndDayOfReservation" Margin="20,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock 
+                Text="Note" 
+                Grid.Row="0" 
+                Margin="0,0,0,0"/>
+
+            <TextBox
+                HorizontalAlignment="Left"
+                Width="230"
+                Text="{Binding Note, UpdateSourceTrigger=PropertyChanged}" 
+                Margin="0,5,0,0"
+                Grid.Row="1"/>
+
+        </Grid>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="20,20,0,0">
+            <Button 
+                Content="Clear"
+                Width="100"
+                Command="{Binding ClearCommand}"/>
+            <Button 
+                Content="Accept" 
+                Width="100"
+                Margin="30,0,0,0"
+                Command="{Binding AcceptCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

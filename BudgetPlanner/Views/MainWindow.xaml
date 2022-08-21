@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="BudgetPlanner.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BudgetPlanner.Views"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="Transparent">
+        
+        <winui:NavigationView x:Name="NavigationView"
+                              Header="Budget planner"
+                              IsBackButtonVisible="Collapsed"
+                              Background="Transparent"
+                              IsSettingsVisible="False"
+                              SelectionChanged="NavigationView_SelectionChanged">
+            <winui:NavigationView.MenuItems>
+                <winui:NavigationViewItem Content="Account"
+                                          Tag="BudgetPlanner.Views.BankAccountPage">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/Bank.png"
+                                    ShowAsMonochrome="False"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="New operation"
+                                          Tag="BudgetPlanner.Views.NewOperationPage">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/Operations.png"
+                                    ShowAsMonochrome="False"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem Content="History"
+                                          Tag="BudgetPlanner.Views.HistoryOfOperationPage">
+                    <winui:NavigationViewItem.Icon>
+                        <BitmapIcon UriSource="/Assets/Diagram.png"
+                                    ShowAsMonochrome="False"/>
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+            </winui:NavigationView.MenuItems>
+            
+            <Frame x:Name="ContentFrame"
+                   Margin="20 20 20 20">
+                <Frame.ContentTransitions>
+                    <TransitionCollection>
+                        <NavigationThemeTransition>
+                            <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                <DrillInNavigationTransitionInfo />
+                            </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                        </NavigationThemeTransition>
+                    </TransitionCollection>
+                </Frame.ContentTransitions>
+            </Frame>
+        </winui:NavigationView>
+
+        <Grid x:Name="AppTitleBar"
+              Background="Transparent"
+              Height="32"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Stretch"
+              Grid.RowSpan="10"
+              Grid.ColumnSpan="10">
+
+            <TextBlock x:Name="AppTitle"
+                       xmlns:appmodel="using:Windows.ApplicationModel"
+                       Text="{x:Bind appmodel:Package.Current.DisplayName}"
+                       Foreground="{StaticResource SystemAccentColor}"
+                       IsHitTestVisible="False"
+                       Margin="12 8 0 0"
+                       FontSize="12"/>
+
+        </Grid>
+    </Grid>
+</Page>

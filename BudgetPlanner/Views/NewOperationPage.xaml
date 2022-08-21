@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="BudgetPlanner.Views.NewOperationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BudgetPlanner.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <VariableSizedWrapGrid Orientation="Horizontal">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0"
+                      Margin="30 30 30 30">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Count of operation"/>
+                        <TextBox Grid.Column="0" 
+                             Margin="0 30 20 0"
+                             x:Name="Count" 
+                             Text=""/>
+
+                        <TextBlock Grid.Column="1"  
+                               Text="Type of operation"
+                               Margin="15 0"/>
+                        <ComboBox Grid.Column="1" 
+                              x:Name="cbOperationType" 
+                              Margin="20 30 0 0"
+                              Width="180"
+                              ItemsSource="{Binding}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="NameOfExpense"/>
+                    </Grid>
+                    
+                    <Grid Grid.Row="1">
+                        <TextBlock Text="Type of category"
+                                   Margin="0 20"/>
+                        <ComboBox
+                              x:Name="cbCategoryType" 
+                              Margin="0,50,0,0"
+                              Width="400"
+                              ItemsSource="{Binding}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="NameOfExpense"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <TextBlock Text="Notes"
+                                   Margin="0 10"/>
+                        <TextBox Grid.Column="0" 
+                             Margin="0 30"
+                             x:Name="Note" 
+                             Text=""/>
+                    </Grid>
+
+                    <Grid Grid.Row="3"
+                          Height="50">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Grid.Column="0"
+                                Margin="0 5 5 5"
+                                Height="40"
+                                Width="180"
+                                Content="Clear"/>
+                        <Button Grid.Column="1"
+                                Margin="20 5 0 5"
+                                Height="40"
+                                Width="180"
+                                Content="Admit"/>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </VariableSizedWrapGrid>
+    </Grid>
+</Page>
