@@ -33,13 +33,16 @@
 
             <Button Grid.Row="0"
                     Margin="5"
-                    Content="My account"/>
+                    Content="My account"
+                    Command="{Binding OpenAccountController}"/>
             <Button Grid.Row="1"
                     Margin="5"
-                    Content="New operation"/>
+                    Content="New operation"
+                    Command="{Binding MakeOperationCommand}"/>
             <Button Grid.Row="2"
                     Margin="5"
-                    Content="History"/>
+                    Content="History"
+                    Command="{Binding MakeOperationCommand}"/>
         </Grid>
 
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"/>

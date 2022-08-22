@@ -38,7 +38,7 @@
                            Foreground="red" 
                            Visibility="{Binding HasErrorMessage, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
-                <ListView ItemsSource="{Binding BudgetCHanges}" 
+                <ListView ItemsSource="{Binding BudgetChanges}" 
                           Visibility="{Binding HasErrorMessage, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
 
                     <!--This container style make that our text is always in the midle of column even if you stretch it-->
